@@ -67,7 +67,7 @@
 
     - name: install gui tools
       loop:
-        - slack
+        - slack-desktop
         - telegram-desktop-bin
         - google-chrome
         - visual-studio-code-insiders
