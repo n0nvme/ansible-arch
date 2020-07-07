@@ -28,6 +28,7 @@
         - xorg-xinit
         - xorg-xrandr
         - awesome-git
+        - i3lock-color
       include_role:
         name: aur_install
     - name: set xinitrc
