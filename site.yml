@@ -26,6 +26,7 @@
       loop:
         - xorg-server
         - xorg-xinit
+        - xorg-xrandr
         - awesome-git
       include_role:
         name: aur_install
