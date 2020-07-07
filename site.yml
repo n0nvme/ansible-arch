@@ -2,6 +2,8 @@
 - name: preparation
   hosts: 127.0.0.1
   connection: local
+  roles:
+    - kewlfft.aur
   tasks:
     - name: configure git
       include_role:
@@ -17,6 +19,8 @@
 - name: install packages
   hosts: 127.0.0.1
   connection: local
+  roles:
+    - kewlfft.aur
   tasks:
     - name: graphics installation
       loop:
