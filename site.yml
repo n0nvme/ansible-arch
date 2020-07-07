@@ -33,7 +33,7 @@
         dest: /home/n0nvme/.xinitrc
     - name: install & enable daemons # TODO: enable daemons
       loop:
-        - NetworkManager
+        - networkmanager
         - docker
         - bluetooth
         - pulseaudio
