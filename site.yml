@@ -24,6 +24,7 @@
   tasks:
     - name: graphics installation
       loop:
+        - xorg-server
         - xorg-xinit
         - awesome-git
       include_role:
