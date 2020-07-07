@@ -75,14 +75,16 @@
       include_role:
         name: aur_install
 
-    - name: install pyenv
-      roles:
-        - role: markosamuli.pyenv
-          pyenv_python_versions:
-            - 3.6.6
-          pyenv_global: 3.6.6
-
-    - name: install python packages
+- name: install python packages
+  hosts: 127.0.0.1
+  connection: local
+  roles:
+    - role: markosamuli.pyenv
+      pyenv_python_versions:
+        - 3.6.6
+      pyenv_global: 3.6.6
+  tasks:
+    - name: install python tools
       loop:
         - bumpversion
         - poetry
