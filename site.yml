@@ -56,6 +56,7 @@
         - vim
         - docker-compose
         - mitmproxy
+        - samba
       include_role:
         name: aur_install
 
