@@ -1,0 +1,94 @@
+---
+- name: preparation
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: install git
+      pacman:
+        name: git
+    - name: configure git
+      include_role: git_config
+    - name: clone & set dotfiles
+      git:
+        repo: "https://github.com/n0nvme/dotfiles"
+        dest: "/home/n0nvme/.config"
+    - name: install yay
+      include_role:
+        name: install_yay
+
+    - name: install ansible module for yay
+
+- name: install packages
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: graphics installation
+      loop:
+        - awesome-git
+      include_role:
+        name: aur_install
+    - name: set xinitrc
+      copy:
+        content: "exec awesome"
+        dest: /home/n0nvme/.xinitrc
+    - name: install & enable daemons # TODO: enable daemons
+      loop:
+        - NetworkManager
+        - docker
+        - bluetooth
+        - pulseaudio
+      include_role:
+        name: aur_install
+
+    - name: install cli tools
+      loop:
+        - dialog
+        - sensonrs
+        - fish
+        - oh-my-fish
+        - mc
+        - ponysay
+        - htop
+        - gotop-bin
+        - vim
+        - docker-compose
+        - mitmproxy
+      include_role:
+        name: aur_install
+
+    - name: fonts installation
+      loop:
+        - noto
+        - noto-emoji
+      include_role:
+        name: aur_install
+
+    - name: install gui tools
+      loop:
+        - slack
+        - telegram-desktop-bin
+        - google-chrome
+        - code-insiders
+        - alacritty
+        - robo3t
+        - mongodb-compass
+        - dbeaver
+        - notion-app
+        - libreoffice
+        - doublecmd-qt5
+      include_role:
+        name: aur_install
+
+    - name: install pyenv
+      roles:
+        - role: markosamuli.pyenv
+          pyenv_python_versions:
+            - 3.6.6
+          pyenv_global: 3.6.6
+
+    - name: install python packages
+      loop:
+        - bumpversion
+        - poetry
+      pip:
+        name: "{{ item }}"

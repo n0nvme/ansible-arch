@@ -1,0 +1,5 @@
+---
+- name: "install {{ item }}"
+  aur:
+    name: "{{ item }}"
+    skip_installed: yes
