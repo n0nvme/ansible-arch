@@ -49,6 +49,7 @@
         - dialog
         - fish
         - openssh
+        - freerdp
         - mc
         - ponysay
         - htop
@@ -81,6 +82,7 @@
         - mongodb-compass
         - dbeaver
         - notion-app
+        - flameshot
         - libreoffice-fresh
         - doublecmd-qt5
       include_role:
