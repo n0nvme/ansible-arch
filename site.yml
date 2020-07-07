@@ -54,6 +54,7 @@
         - htop
         - gotop-bin
         - vim
+        - zip
         - docker-compose
         - mitmproxy
         - samba
