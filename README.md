@@ -17,6 +17,7 @@ ansible-playbook site.yml
 - fix oh-my-fish installation
 - some refactor
 - auto install roles from ansible-galaxy
+- even-better-ls installation
 
 # EPIC TODO:
  - add reflector(as daemon)
