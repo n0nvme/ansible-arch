@@ -61,6 +61,7 @@
       loop:
         - noto-fonts
         - noto-fonts-emoji
+        - terminus-font
       include_role:
         name: aur_install
 
