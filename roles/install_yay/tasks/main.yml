@@ -3,4 +3,3 @@
   aur:
     name: yay
     use: makepkg
-    skip_installed: yes
