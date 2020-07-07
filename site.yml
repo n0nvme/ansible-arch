@@ -35,7 +35,7 @@
       loop:
         - networkmanager
         - docker
-        - bluetooth
+        - blueman
         - pulseaudio
       include_role:
         name: aur_install
