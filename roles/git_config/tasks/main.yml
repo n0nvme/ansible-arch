@@ -2,4 +2,4 @@
 - name: copy .gitconfig
   copy:
     src: gitconfig
-    dest: /home/user/.gitconfig
+    dest: /home/n0nvme/.gitconfig
