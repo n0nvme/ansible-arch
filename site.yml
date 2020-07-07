@@ -43,7 +43,7 @@
     - name: install cli tools
       loop:
         - dialog
-        - sensonrs
+        - sensors
         - fish
         - oh-my-fish
         - mc
