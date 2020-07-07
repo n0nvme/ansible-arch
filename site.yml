@@ -14,8 +14,6 @@
       include_role:
         name: install_yay
 
-    - name: install ansible module for yay
-
 - name: install packages
   hosts: 127.0.0.1
   connection: local
