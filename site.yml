@@ -56,8 +56,8 @@
 
     - name: fonts installation
       loop:
-        - noto
-        - noto-emoji
+        - noto-fonts
+        - noto-fonts-emoji
       include_role:
         name: aur_install
 
