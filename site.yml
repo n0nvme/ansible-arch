@@ -77,12 +77,12 @@
       include_role:
         name: aur_install
 
-- name: install omf
-  hosts: 127.0.0.1
-  connection: local
-  tasks:
-    - name: install
-      command: curl -L https://get.oh-my.fish | fish
+# - name: install omf
+#   hosts: 127.0.0.1
+#   connection: local
+#   tasks:
+#     - name: install
+#       command: curl -L https://get.oh-my.fish | fish
 
 - name: install python packages
   hosts: 127.0.0.1
