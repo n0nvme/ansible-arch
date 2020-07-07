@@ -66,13 +66,13 @@
         - slack
         - telegram-desktop-bin
         - google-chrome
-        - code-insiders
+        - visual-studio-code-insiders
         - alacritty
-        - robo3t
+        - robo3t-bin
         - mongodb-compass
         - dbeaver
         - notion-app
-        - libreoffice
+        - libreoffice-fresh
         - doublecmd-qt5
       include_role:
         name: aur_install
