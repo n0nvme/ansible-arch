@@ -1,4 +1,0 @@
----
-- name: "install {{ item }}"
-  aur:
-    name: "{{ item }}"

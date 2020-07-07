@@ -1,5 +1,4 @@
 ---
-- name: install yay
+- name: "install {{ item }}"
   aur:
-    name: yay
-    use: makepkg
+    name: "{{ item }}"
