@@ -5,7 +5,7 @@
   tasks:
     - name: configure git
       include_role:
-        - name: git_config
+        name: git_config
     - name: clone & set dotfiles
       git:
         repo: "https://github.com/n0nvme/dotfiles"
