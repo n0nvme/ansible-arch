@@ -3,11 +3,9 @@
   hosts: 127.0.0.1
   connection: local
   tasks:
-    - name: install git
-      pacman:
-        name: git
     - name: configure git
-      include_role: git_config
+      include_role:
+        - name: git_config
     - name: clone & set dotfiles
       git:
         repo: "https://github.com/n0nvme/dotfiles"
