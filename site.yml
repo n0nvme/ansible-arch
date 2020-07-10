@@ -50,6 +50,7 @@
         - fish
         - openssh
         - freerdp
+        - openvpn
         - mc
         - ponysay
         - htop
