@@ -29,6 +29,7 @@
         - xorg-xrandr
         - awesome-git
         - i3lock-color
+        - picom-git
       include_role:
         name: aur_install
     - name: set xinitrc
@@ -58,9 +59,11 @@
         - vim
         - zip
         - unzip
+        - tar
         - docker-compose
         - mitmproxy
         - samba
+        - smartmontools
       include_role:
         name: aur_install
 
@@ -78,15 +81,17 @@
         - slack-desktop
         - telegram-desktop-bin
         - google-chrome
+        - spotify
         - visual-studio-code-insiders
+        - code
         - alacritty
         - robo3t-bin
-        - mongodb-compass
         - dbeaver
         - notion-app
         - flameshot
         - libreoffice-fresh
         - doublecmd-qt5
+        - keepassxc
       include_role:
         name: aur_install
 
