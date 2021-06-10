@@ -49,6 +49,7 @@
       loop:
         - dialog
         - fish
+        - zsh
         - openssh
         - freerdp
         - openvpn
