@@ -37,7 +37,7 @@
         name: aur_install
     - name: set xinitrc
       copy:
-        content: "exec awesome"
+        content: "picom -b --unredir-if-possible --backend glx --vsync --glx-no-stencil &\nexec awesome"
         dest: /home/n0nvme/.xinitrc
     - name: install & enable daemons # TODO: enable daemons
       loop:
