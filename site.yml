@@ -10,6 +10,7 @@
       git:
         repo: "https://github.com/n0nvme/dotfiles"
         dest: "/home/n0nvme/.config"
+        state: present
     - name: install yay
       kewlfft.aur.aur:
         name: yay
