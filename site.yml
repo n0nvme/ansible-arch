@@ -51,9 +51,7 @@
         - freerdp
         - openvpn
         - mc
-        - ponysay
         - htop
-        - gotop-bin
         - vim
         - zip
         - unzip
@@ -62,6 +60,9 @@
         - mitmproxy
         - samba
         - smartmontools
+        - kubectl
+        - kubectx
+        - kubecolor
       include_role:
         name: aur_install
 
@@ -82,7 +83,6 @@
         - spotify
         - visual-studio-code-insiders-bin
         - kitty
-        - alacritty
         - robo3t-bin
         - dbeaver
         - notion-app
@@ -90,6 +90,7 @@
         - libreoffice-fresh
         - doublecmd-qt5
         - keepassxc
+        - obsidian
       include_role:
         name: aur_install
 
