@@ -6,16 +6,20 @@
     - name: configure git
       include_role:
         name: git_config
-    # - name: clone & set dotfiles
-    #   git:
-    #     repo: "https://github.com/n0nvme/dotfiles"
-    #     dest: "/home/n0nvme/.config"
-    #     state: present
     - name: install yay
       kewlfft.aur.aur:
         name: yay
         state: present
         use: makepkg
+
+- name: clone dotfiles
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: kitty config # noqa: git-latest
+      git:
+        repo: git@github.com:n0nvme/kitty-config.git
+        dest: /home/n0nvme/.config/kitty
 
 - name: install packages
   hosts: 127.0.0.1
