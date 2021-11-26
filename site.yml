@@ -12,7 +12,7 @@
         state: present
         use: makepkg
 
-- name: clone dotfiles
+- name: dotfiles
   hosts: 127.0.0.1
   connection: local
   tasks:
@@ -20,6 +20,14 @@
       git:
         repo: https://github.com/n0nvme/kitty-config.git
         dest: /home/n0nvme/.config/kitty
+    - name: zshenv
+      copy:
+        content: "ZDOTDIR=~/.config/zsh/"
+        dest: /home/n0nvme/.zshenv
+    - name: zsh config # noqa: git-latest
+      git:
+        repo: https://github.com/n0nvme/zshrc.git
+        dest: /home/n0nvme/.config/zsh
 
 - name: install packages
   hosts: 127.0.0.1
