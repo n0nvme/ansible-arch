@@ -18,7 +18,7 @@
   tasks:
     - name: kitty config # noqa: git-latest
       git:
-        repo: https://github.com/n0nvme/kitty-config.git
+        repo: git@github.com:n0nvme/kitty-config.git
         dest: /home/n0nvme/.config/kitty
     - name: zshenv
       copy:
@@ -26,7 +26,7 @@
         dest: /home/n0nvme/.zshenv
     - name: zsh config # noqa: git-latest
       git:
-        repo: https://github.com/n0nvme/zshrc.git
+        repo: git@github.com:n0nvme/zshrc.git
         dest: /home/n0nvme/.config/zsh
 
 - name: install packages
@@ -77,6 +77,8 @@
         - kubectx
         - kubecolor
         - exa
+        - fzf
+        - acpi
       include_role:
         name: aur_install
 
@@ -86,6 +88,7 @@
         - noto-fonts-emoji
         - nerd-fonts-terminus
         - nerd-fonts-source-code-pro
+        - ttf-fira-code
       include_role:
         name: aur_install
 
