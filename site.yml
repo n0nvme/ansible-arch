@@ -76,6 +76,7 @@
         - kubectl
         - kubectx
         - kubecolor
+        - exa
       include_role:
         name: aur_install
 
