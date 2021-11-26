@@ -45,7 +45,11 @@
         name: aur_install
     - name: set xinitrc
       copy:
-        content: "picom -b --unredir-if-possible --backend glx --vsync --glx-no-stencil &\nexec awesome"
+        content: |
+          picom -b --unredir-if-possible --backend glx --vsync --glx-no-stencil &
+          eval $(gnome-keyring-daemon --start)
+          export SSH_AUTH_SOCK
+          exec awesome
         dest: /home/n0nvme/.xinitrc
     - name: install & enable daemons # TODO: enable daemons
       loop:
@@ -55,7 +59,24 @@
         - pulseaudio
       include_role:
         name: aur_install
-
+    - name: install other packages
+      loop:
+        - gnome-keyring
+        - libsecret
+      include_role:
+        name: aur_install
+    - name: set pam.d/login
+      copy:
+        content: |
+          auth       required     pam_securetty.so
+          auth       requisite    pam_nologin.so
+          auth       include      system-local-login
+          auth       optional     pam_gnome_keyring.so
+          account    include      system-local-login
+          session    include      system-local-login
+          session    optional     pam_gnome_keyring.so auto_start
+        dest: /etc/pam.d/login
+      become: yes
     - name: install cli tools
       loop:
         - dialog
