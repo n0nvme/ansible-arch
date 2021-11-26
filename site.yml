@@ -1,5 +1,5 @@
 ---
-- name: preparation
+- name: prepare
   hosts: 127.0.0.1
   connection: local
   tasks:
@@ -11,8 +11,10 @@
         repo: "https://github.com/n0nvme/dotfiles"
         dest: "/home/n0nvme/.config"
     - name: install yay
-      include_role:
-        name: install_yay
+      kewlfft.aur.aur:
+        name: yay
+        state: present
+        use: makepkg
 
 - name: install packages
   hosts: 127.0.0.1
