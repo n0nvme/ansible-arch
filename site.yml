@@ -113,6 +113,7 @@
         - exa
         - fzf
         - acpi
+        - navi
       include_role:
         name: aur_install
 
