@@ -22,7 +22,7 @@
         dest: /home/n0nvme/.config/kitty
     - name: zshenv
       copy:
-        content: "ZDOTDIR=~/.config/zsh/"
+        content: "ZDOTDIR=~/.config/zsh"
         dest: /home/n0nvme/.zshenv
     - name: zsh config # noqa: git-latest
       git:
