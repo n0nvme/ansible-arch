@@ -1,17 +1,16 @@
 # ansible-arch
 ansible playbook for arch linux management
 
-# USAGE:
+## USAGE:
 after reboot to installed system(from non-root user):
 ```bash
-anisble-galaxy install kewlfft.aur
-ansible-galaxy install markosamuli.pyenv
 git clone https://github.com/n0nvme/ansible-arch.git
 cd ansible-arch
+ansible-galaxy install -r requirements.ymls
 ansible-playbook site.yml
 ```
 
-# TODO:
+## TODO:
 - fix poetry && bumpversion installation
 - add user to docker group
 - enable daemons
@@ -26,6 +25,6 @@ ansible-playbook site.yml
 - virtualbox installation
 - more fonts
 
-# EPIC TODO:
+## EPIC TODO:
  - add reflector(as daemon)
  - create non-root sudo user
