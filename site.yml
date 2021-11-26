@@ -100,6 +100,7 @@
         - mc
         - htop
         - vim
+        - clang
         - zip
         - unzip
         - tar
@@ -143,6 +144,7 @@
         - doublecmd-qt5
         - keepassxc
         - obsidian
+        - mailspring
       include_role:
         name: aur_install
 
@@ -151,15 +153,11 @@
   connection: local
   roles:
     - role: markosamuli.pyenv
+      environment:
+        CC: clang
       pyenv_python_versions:
         - 3.6.6
         - 3.8.2
         - 3.10.0
       pyenv_global: system
-  tasks:
-    - name: install python tools
-      loop:
-        - bumpversion
-        - poetry
-      pip:
-        name: "{{ item }}"
+      pyenv_version: "v2.2.2"
