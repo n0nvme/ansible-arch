@@ -6,11 +6,11 @@
     - name: configure git
       include_role:
         name: git_config
-    - name: clone & set dotfiles
-      git:
-        repo: "https://github.com/n0nvme/dotfiles"
-        dest: "/home/n0nvme/.config"
-        state: present
+    # - name: clone & set dotfiles
+    #   git:
+    #     repo: "https://github.com/n0nvme/dotfiles"
+    #     dest: "/home/n0nvme/.config"
+    #     state: present
     - name: install yay
       kewlfft.aur.aur:
         name: yay
