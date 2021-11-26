@@ -18,7 +18,7 @@
   tasks:
     - name: kitty config # noqa: git-latest
       git:
-        repo: git@github.com:n0nvme/kitty-config.git
+        repo: https://github.com/n0nvme/kitty-config.git
         dest: /home/n0nvme/.config/kitty
 
 - name: install packages
