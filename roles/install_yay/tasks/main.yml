@@ -1,5 +1,0 @@
----
-- name: install yay
-  aur:
-    name: yay
-    use: makepkg

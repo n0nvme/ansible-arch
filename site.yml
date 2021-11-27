@@ -1,26 +1,74 @@
 ---
-- name: preparation
+- name: prepare
   hosts: 127.0.0.1
   connection: local
-  roles:
-    - kewlfft.aur
   tasks:
     - name: configure git
-      include_role:
-        name: git_config
-    - name: clone & set dotfiles
-      git:
-        repo: "https://github.com/n0nvme/dotfiles"
-        dest: "/home/n0nvme/.config"
+      copy:
+        content: |
+          [user]
+	            email = svmpl3nvm3@gmail.com
+	            name = n0nvme
+          dest: /home/n0nvme/.gitconfig
     - name: install yay
-      include_role:
-        name: install_yay
+      kewlfft.aur.aur:
+        name: yay
+        state: present
+        use: makepkg
+
+- name: dotfiles
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: kitty config # noqa: git-latest
+      git:
+        repo: git@github.com:n0nvme/kitty-config.git
+        dest: /home/n0nvme/.config/kitty
+    - name: zshenv
+      copy:
+        content: "ZDOTDIR=~/.config/zsh"
+        dest: /home/n0nvme/.zshenv
+    - name: zsh config # noqa: git-latest
+      git:
+        repo: git@github.com:n0nvme/zshrc.git
+        dest: /home/n0nvme/.config/zsh
+
+- name: other files
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: set xinitrc
+      copy:
+        content: |
+          picom -b --unredir-if-possible --backend glx --vsync --glx-no-stencil &
+          eval $(gnome-keyring-daemon --start)
+          export SSH_AUTH_SOCK
+          exec awesome
+        dest: /home/n0nvme/.xinitrc
+    - name: set pam.d/login
+      copy:
+        content: |
+          auth       required     pam_securetty.so
+          auth       requisite    pam_nologin.so
+          auth       include      system-local-login
+          auth       optional     pam_gnome_keyring.so
+          account    include      system-local-login
+          session    include      system-local-login
+          session    optional     pam_gnome_keyring.so auto_start
+        dest: /etc/pam.d/login
+      become: yes
+    - name: enable pacman colors
+      blockinfile:
+        path: /etc/pacman.conf
+        block: |
+          [options]
+          Color
+        marker: "# {mark} ANSIBLE MANAGED BLOCK"
+      become: yes
 
 - name: install packages
   hosts: 127.0.0.1
   connection: local
-  roles:
-    - kewlfft.aur
   tasks:
     - name: graphics installation
       loop:
@@ -32,10 +80,6 @@
         - picom-git
       include_role:
         name: aur_install
-    - name: set xinitrc
-      copy:
-        content: "exec awesome"
-        dest: /home/n0nvme/.xinitrc
     - name: install & enable daemons # TODO: enable daemons
       loop:
         - networkmanager
@@ -44,19 +88,23 @@
         - pulseaudio
       include_role:
         name: aur_install
-
+    - name: install other packages
+      loop:
+        - gnome-keyring
+        - libsecret
+      include_role:
+        name: aur_install
     - name: install cli tools
       loop:
         - dialog
-        - fish
+        - zsh
         - openssh
         - freerdp
         - openvpn
         - mc
-        - ponysay
         - htop
-        - gotop-bin
         - vim
+        - clang
         - zip
         - unzip
         - tar
@@ -64,6 +112,13 @@
         - mitmproxy
         - samba
         - smartmontools
+        - kubectl
+        - kubectx
+        - kubecolor
+        - exa
+        - fzf
+        - acpi
+        - navi
       include_role:
         name: aur_install
 
@@ -73,6 +128,7 @@
         - noto-fonts-emoji
         - nerd-fonts-terminus
         - nerd-fonts-source-code-pro
+        - ttf-fira-code
       include_role:
         name: aur_install
 
@@ -83,7 +139,7 @@
         - google-chrome
         - spotify
         - visual-studio-code-insiders-bin
-        - alacritty
+        - kitty
         - robo3t-bin
         - dbeaver
         - notion-app
@@ -91,28 +147,21 @@
         - libreoffice-fresh
         - doublecmd-qt5
         - keepassxc
+        - obsidian
+        - mailspring
       include_role:
         name: aur_install
-
-# - name: install omf
-#   hosts: 127.0.0.1
-#   connection: local
-#   tasks:
-#     - name: install
-#       command: curl -L https://get.oh-my.fish | fish
 
 - name: install python packages
   hosts: 127.0.0.1
   connection: local
   roles:
     - role: markosamuli.pyenv
+      environment:
+        CC: clang
       pyenv_python_versions:
         - 3.6.6
-      pyenv_global: 3.6.6
-  tasks:
-    - name: install python tools
-      loop:
-        - bumpversion
-        - poetry
-      pip:
-        name: "{{ item }}"
+        - 3.8.2
+        - 3.10.0
+      pyenv_global: system
+      pyenv_version: "v2.2.2"
