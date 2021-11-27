@@ -1,5 +1,0 @@
----
-- name: copy .gitconfig
-  copy:
-    src: gitconfig
-    dest: /home/n0nvme/.gitconfig

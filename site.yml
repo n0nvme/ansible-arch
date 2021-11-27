@@ -4,8 +4,12 @@
   connection: local
   tasks:
     - name: configure git
-      include_role:
-        name: git_config
+      copy:
+        content: |
+          [user]
+	            email = svmpl3nvm3@gmail.com
+	            name = n0nvme
+          dest: /home/n0nvme/.gitconfig
     - name: install yay
       kewlfft.aur.aur:
         name: yay
