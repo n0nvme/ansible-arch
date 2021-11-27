@@ -7,9 +7,9 @@
       copy:
         content: |
           [user]
-	            email = svmpl3nvm3@gmail.com
-	            name = n0nvme
-          dest: /home/n0nvme/.gitconfig
+              email = svmpl3nvm3@gmail.com
+              name = n0nvme
+        dest: /home/n0nvme/.gitconfig
     - name: install yay
       kewlfft.aur.aur:
         name: yay
@@ -109,6 +109,7 @@
         - unzip
         - tar
         - docker-compose
+        - ansible-lint
         - mitmproxy
         - samba
         - smartmontools
