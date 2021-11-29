@@ -100,6 +100,7 @@
         - wmctrl
         - xdotool
         - libinput-gestures
+        - dex
       include_role:
         name: aur_install
     - name: install cli tools
