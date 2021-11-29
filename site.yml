@@ -65,7 +65,12 @@
           Color
         marker: "# {mark} ANSIBLE MANAGED BLOCK"
       become: yes
-
+    - name: fill libinput gestures config
+      copy:
+        content: |
+          gesture swipe left xdotool key super+Left
+          gesture swipe right xdotool key super+Right
+        dest: /home/n0nvme/.config/libinput-gestures.conf
 - name: install packages
   hosts: 127.0.0.1
   connection: local
@@ -92,6 +97,9 @@
       loop:
         - gnome-keyring
         - libsecret
+        - wmctrl
+        - xdotool
+        - libinput-gestures
       include_role:
         name: aur_install
     - name: install cli tools

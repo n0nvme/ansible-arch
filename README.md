@@ -22,3 +22,4 @@ ansible-playbook site.yml -K
 - use reflector config
 - create user
 - manage user's groups
+- call libunput-gestures-setup
