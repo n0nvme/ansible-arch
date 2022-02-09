@@ -57,10 +57,11 @@
           session    optional     pam_gnome_keyring.so auto_start
         dest: /etc/pam.d/login
       become: yes
-    - name: enable pacman colors
+    - name: edit pacman.conf
       blockinfile:
         path: /etc/pacman.conf
         block: |
+          ParallelDownloads = 5
           [options]
           Color
         marker: "# {mark} ANSIBLE MANAGED BLOCK"
