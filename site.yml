@@ -129,6 +129,7 @@
         - fzf
         - acpi
         - navi
+        - curlie
       include_role:
         name: aur_install
 
@@ -145,7 +146,7 @@
     - name: install gui tools
       loop:
         - slack-desktop
-        - telegram-desktop-bin
+        - telegram-desktop
         - google-chrome
         - spotify
         - visual-studio-code-insiders-bin
