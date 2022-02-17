@@ -1,5 +1,0 @@
----
-- name: "install {{ item }}"
-  kewlfft.aur.aur:
-    name: "{{ item }}"
-    state: present

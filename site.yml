@@ -15,7 +15,6 @@
         name: yay
         state: present
         use: makepkg
-
 - name: dotfiles
   hosts: 127.0.0.1
   connection: local
@@ -77,93 +76,96 @@
   connection: local
   tasks:
     - name: graphics installation
-      loop:
-        - xorg-server
-        - xorg-xinit
-        - xorg-xrandr
-        - awesome-git
-        - i3lock-color
-        - picom-git
-      include_role:
-        name: aur_install
+      kewlfft.aur.aur:
+        use: yay
+        state: present
+        name:
+          - xorg-server
+          - xorg-xinit
+          - xorg-xrandr
+          - awesome-git
+          - i3lock-color
+          - picom-git
     - name: install & enable daemons # TODO: enable daemons
-      loop:
-        - networkmanager
-        - docker
-        - blueman
-        - pulseaudio
-      include_role:
-        name: aur_install
+      kewlfft.aur.aur:
+        use: yay
+        state: present
+        name:
+          - networkmanager
+          - docker
+          - blueman
+          - pulseaudio
     - name: install other packages
-      loop:
-        - gnome-keyring
-        - libsecret
-        - wmctrl
-        - xdotool
-        - libinput-gestures
-        - dex
-      include_role:
-        name: aur_install
+      kewlfft.aur.aur:
+        use: yay
+        state: present
+        name:
+          - gnome-keyring
+          - libsecret
+          - wmctrl
+          - xdotool
+          - libinput-gestures
+          - dex
     - name: install cli tools
-      loop:
-        - dialog
-        - zsh
-        - openssh
-        - freerdp
-        - openvpn
-        - mc
-        - htop
-        - vim
-        - clang
-        - zip
-        - unzip
-        - tar
-        - docker-compose
-        - ansible-lint
-        - mitmproxy
-        - samba
-        - smartmontools
-        - kubectl
-        - kubectx
-        - kubecolor
-        - exa
-        - fzf
-        - acpi
-        - navi
-        - curlie
-      include_role:
-        name: aur_install
-
+      kewlfft.aur.aur:
+        use: yay
+        state: present
+        name:
+          - dialog
+          - zsh
+          - openssh
+          - freerdp
+          - openvpn
+          - mc
+          - htop
+          - vim
+          - clang
+          - zip
+          - unzip
+          - tar
+          - docker-compose
+          - ansible-lint
+          - mitmproxy
+          - samba
+          - smartmontools
+          - kubectl
+          - kubectx
+          - kubecolor
+          - exa
+          - fzf
+          - acpi
+          - navi
+          - curlie
     - name: fonts installation
-      loop:
-        - noto-fonts
-        - noto-fonts-emoji
-        - nerd-fonts-terminus
-        - nerd-fonts-source-code-pro
-        - ttf-fira-code
-      include_role:
-        name: aur_install
-
+      kewlfft.aur.aur:
+        use: yay
+        state: present
+        name:
+          - noto-fonts
+          - noto-fonts-emoji
+          - nerd-fonts-terminus
+          - nerd-fonts-source-code-pro
+          - ttf-fira-code
     - name: install gui tools
-      loop:
-        - slack-desktop
-        - telegram-desktop
-        - google-chrome
-        - spotify
-        - visual-studio-code-insiders-bin
-        - kitty
-        - robo3t-bin
-        - dbeaver
-        - notion-app
-        - flameshot
-        - libreoffice-fresh
-        - doublecmd-qt5
-        - keepassxc
-        - obsidian
-        - mailspring
-      include_role:
-        name: aur_install
-
+      kewlfft.aur.aur:
+        use: yay
+        state: present
+        name:
+          - slack-desktop
+          - telegram-desktop
+          - google-chrome
+          - spotify
+          - visual-studio-code-insiders-bin
+          - kitty
+          - robo3t-bin
+          - dbeaver
+          - notion-app
+          - flameshot
+          - libreoffice-fresh
+          - doublecmd-qt5
+          - keepassxc
+          - obsidian
+          - mailspring
 - name: install python packages
   hosts: 127.0.0.1
   connection: local
