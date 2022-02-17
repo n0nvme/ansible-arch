@@ -1,6 +1,7 @@
 ---
 - name: prepare
   hosts: 127.0.0.1
+  gather_facts: no
   connection: local
   tasks:
     - name: configure git
@@ -17,6 +18,7 @@
         use: makepkg
 - name: dotfiles
   hosts: 127.0.0.1
+  gather_facts: no
   connection: local
   tasks:
     - name: kitty config # noqa: git-latest
@@ -34,6 +36,7 @@
 
 - name: other files
   hosts: 127.0.0.1
+  gather_facts: no
   connection: local
   tasks:
     - name: set xinitrc
@@ -73,6 +76,7 @@
         dest: /home/n0nvme/.config/libinput-gestures.conf
 - name: install packages
   hosts: 127.0.0.1
+  gather_facts: no
   connection: local
   tasks:
     - name: graphics installation
@@ -173,6 +177,7 @@
     - role: markosamuli.pyenv
       environment:
         CC: clang
+      pyenv_init_shell: false
       pyenv_python_versions:
         - 3.6.6
         - 3.8.2
