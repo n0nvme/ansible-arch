@@ -173,6 +173,7 @@
 - name: install && setup rootless podman
   hosts: 127.0.0.1
   connection: local
+  gather_facts: no
   tasks:
     - name: install podman with dependencies
       kewlfft.aur.aur:
