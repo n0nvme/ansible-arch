@@ -22,7 +22,7 @@
   gather_facts: no
   connection: local
   tasks:
-    - name: kitty config # noqa: git-latest
+    - name: kitty config
       git:
         repo: git@github.com:n0nvme/kitty-config.git
         dest: /home/n0nvme/.config/kitty
@@ -31,7 +31,7 @@
         content: "ZDOTDIR=~/.config/zsh"
         dest: /home/n0nvme/.zshenv
         mode: 0644
-    - name: zsh config # noqa: git-latest
+    - name: zsh config
       git:
         repo: git@github.com:n0nvme/zshrc.git
         dest: /home/n0nvme/.config/zsh
