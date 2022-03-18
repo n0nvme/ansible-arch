@@ -170,6 +170,29 @@
           - keepassxc
           - obsidian
           - mailspring
+- name: install && setup rootless podman
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: install podman with dependencies
+      kewlfft.aur.aur:
+        use: yay
+        state: present
+        name:
+          - fuse-overlayfs
+          - podman
+    - name: setup subuid
+      copy:
+        content: |
+          n0nvme:100000:65536
+        dest: /etc/subuid
+        become: yes
+    - name: setup subgid
+      copy:
+        content: |
+          n0nvme:100000:65536
+        dest: /etc/subgid
+        become: yes
 - name: install python packages
   hosts: 127.0.0.1
   connection: local
