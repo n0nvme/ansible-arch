@@ -11,4 +11,5 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install ansible==5.5.0 ansible-lint==5.4.0
+      - run: ansible --version
       - run: ansible-lint site.yml
