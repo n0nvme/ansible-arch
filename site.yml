@@ -1,7 +1,7 @@
 ---
 - name: prepare
   hosts: 127.0.0.1
-  gather_facts: no
+  gather_facts: false
   connection: local
   tasks:
     - name: configure git
@@ -19,7 +19,7 @@
         use: makepkg
 - name: dotfiles
   hosts: 127.0.0.1
-  gather_facts: no
+  gather_facts: false
   connection: local
   tasks:
     - name: kitty config
@@ -38,7 +38,7 @@
 
 - name: other files
   hosts: 127.0.0.1
-  gather_facts: no
+  gather_facts: false
   connection: local
   tasks:
     - name: set xinitrc
@@ -62,7 +62,7 @@
           session    optional     pam_gnome_keyring.so auto_start
         dest: /etc/pam.d/login
         mode: 0644
-      become: yes
+      become: true
     - name: edit pacman.conf
       blockinfile:
         path: /etc/pacman.conf
@@ -72,7 +72,7 @@
           Color
         marker: "# {mark} ANSIBLE MANAGED BLOCK"
 
-      become: yes
+      become: true
     - name: fill libinput gestures config
       copy:
         content: |
@@ -82,7 +82,7 @@
         mode: 0644
 - name: install packages
   hosts: 127.0.0.1
-  gather_facts: no
+  gather_facts: false
   connection: local
   tasks:
     - name: graphics installation
@@ -179,7 +179,7 @@
 - name: install && setup rootless podman
   hosts: 127.0.0.1
   connection: local
-  gather_facts: no
+  gather_facts: false
   tasks:
     - name: install podman with dependencies
       kewlfft.aur.aur:
@@ -194,14 +194,14 @@
           n0nvme:100000:65536
         dest: /etc/subuid
         mode: 0644
-        become: yes
+        become: true
     - name: setup subgid
       copy:
         content: |
           n0nvme:100000:65536
         dest: /etc/subgid
         mode: 0644
-        become: yes
+        become: true
 - name: install python packages
   hosts: 127.0.0.1
   connection: local
