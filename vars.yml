@@ -1,67 +1,82 @@
-graphics:
-    - xorg-server
-    - xorg-xinit
-    - xorg-xrandr
-    - awesome-git
-    - i3lock-color
-    - picom-git
-daemons:
-    - networkmanager
-    - docker
-    - blueman
-    - pulseaudio
-other:
-    - gnome-keyring
-    - libsecret
-    - wmctrl
-    - xdotool
-    - libinput-gestures
-    - dex
-cli's:
-    - dialog
-    - zsh
-    - openssh
-    - freerdp
-    - openvpn
-    - mc
-    - htop
-    - vim
-    - clang
-    - zip
-    - unzip
-    - tar
-    - docker-compose
-    - ansible-lint
-    - mitmproxy
-    - samba
-    - smartmontools
-    - kubectl
-    - kubectx
-    - kubecolor
-    - exa
-    - fzf
-    - acpi
-    - navi
-    - curlie
-fonts:
-    - noto-fonts
-    - noto-fonts-emoji
-    - nerd-fonts-terminus
-    - nerd-fonts-source-code-pro
-    - ttf-fira-code
-gui's:
-    - slack-desktop
-    - telegram-desktop
-    - google-chrome
-    - spotify
-    - visual-studio-code-insiders-bin
-    - kitty
-    - robo3t-bin
-    - dbeaver
-    - notion-app
-    - flameshot
-    - libreoffice-fresh
-    - doublecmd-qt5
-    - keepassxc
-    - obsidian
-    - mailspring
+pacman:
+  # graphics
+  - xorg-server
+  - xorg-xinit
+  - xorg-xrandr
+
+  # daemons
+  - networkmanager
+  - docker
+  - blueman
+  - pulseaudio
+
+  # cli's
+  - podman
+  - docker-compose
+  - dialog
+  - xdotool
+  - wmctrl
+  - vim
+  - htop
+  - clang
+  - zip
+  - unzip
+  - tar
+  - smartmontools
+  - kubectl
+  - kubectx
+  - acpi
+  - exa
+  - fzf
+
+  #gui's
+  - telegram-desktop
+  - kitty
+  - dbeaver
+  - flameshot
+  - libreoffice-fresh
+  - doublecmd-qt5
+  - keepassxc
+  - obsidian
+
+  # other
+  - gnome-keyring
+  - fuse-overlayfs
+  - libsecret
+  - openssh
+  - zsh
+  - freerdp
+  - openvpn
+  - networkmanager-openvpn
+  - mc
+
+  # fonts
+  - noto-fonts
+  - noto-fonts-emoji
+  - ttf-fira-code
+
+aur:
+  # graphics
+  - awesome-git
+  - i3lock-color
+  - picom-git
+
+  # other
+  - libinput-gestures
+  - dex
+
+  # cli's
+  - navi
+  - curlie
+  - kubecolor
+
+  # fonts
+  - nerd-fonts-terminus
+  - nerd-fonts-source-code-pro
+
+  # gui's
+  - slack-desktop
+  - google-chrome
+  - visual-studio-code-insiders-bin
+  - robo3t-bin
+  - mailspring
