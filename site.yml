@@ -66,8 +66,8 @@
       blockinfile:
         path: /etc/pacman.conf
         block: |
-          ParallelDownloads = 5
           [options]
+          ParallelDownloads = 5
           Color
         marker: "# {mark} ANSIBLE MANAGED BLOCK"
       become: true
@@ -93,11 +93,12 @@
     - name: official packages
       ansible.builtin.pacman:
         state: present
-        name: packages.pacman
+        name: "{{ packages.pacman }}"
+      become: true
     - name: aur packages
       kewlfft.aur.aur:
         state: present
-        name: packages.aur
+        name: "{{ packages.aur }}"
 - name: setup rootless podman
   hosts: 127.0.0.1
   connection: local
@@ -109,14 +110,14 @@
           n0nvme:100000:65536
         dest: /etc/subuid
         mode: 0644
-        become: true
+      become: true
     - name: setup subgid
       copy:
         content: |
           n0nvme:100000:65536
         dest: /etc/subgid
         mode: 0644
-        become: true
+      become: true
 - name: install python packages
   hosts: 127.0.0.1
   connection: local
