@@ -1,0 +1,11 @@
+name: Ansible Lint  # feel free to pick your own name
+
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container: quay.io/ansible/toolset
+    steps:
+      - uses: actions/checkout@v2
+      - run: ansible-lint site.yml

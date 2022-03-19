@@ -1,7 +1,7 @@
 ---
 - name: prepare
   hosts: 127.0.0.1
-  gather_facts: no
+  gather_facts: false
   connection: local
   tasks:
     - name: configure git
@@ -11,6 +11,7 @@
               email = svmpl3nvm3@gmail.com
               name = n0nvme
         dest: /home/n0nvme/.gitconfig
+        mode: 0644
     - name: install yay
       kewlfft.aur.aur:
         name: yay
@@ -18,10 +19,10 @@
         use: makepkg
 - name: dotfiles
   hosts: 127.0.0.1
-  gather_facts: no
+  gather_facts: false
   connection: local
   tasks:
-    - name: kitty config # noqa: git-latest
+    - name: kitty config
       git:
         repo: git@github.com:n0nvme/kitty-config.git
         dest: /home/n0nvme/.config/kitty
@@ -29,14 +30,15 @@
       copy:
         content: "ZDOTDIR=~/.config/zsh"
         dest: /home/n0nvme/.zshenv
-    - name: zsh config # noqa: git-latest
+        mode: 0644
+    - name: zsh config
       git:
         repo: git@github.com:n0nvme/zshrc.git
         dest: /home/n0nvme/.config/zsh
 
 - name: other files
   hosts: 127.0.0.1
-  gather_facts: no
+  gather_facts: false
   connection: local
   tasks:
     - name: set xinitrc
@@ -47,6 +49,7 @@
           export SSH_AUTH_SOCK
           exec awesome
         dest: /home/n0nvme/.xinitrc
+        mode: 0644
     - name: set pam.d/login
       copy:
         content: |
@@ -58,7 +61,8 @@
           session    include      system-local-login
           session    optional     pam_gnome_keyring.so auto_start
         dest: /etc/pam.d/login
-      become: yes
+        mode: 0644
+      become: true
     - name: edit pacman.conf
       blockinfile:
         path: /etc/pacman.conf
@@ -67,16 +71,18 @@
           [options]
           Color
         marker: "# {mark} ANSIBLE MANAGED BLOCK"
-      become: yes
+
+      become: true
     - name: fill libinput gestures config
       copy:
         content: |
           gesture swipe left xdotool key super+Left
           gesture swipe right xdotool key super+Right
         dest: /home/n0nvme/.config/libinput-gestures.conf
+        mode: 0644
 - name: install packages
   hosts: 127.0.0.1
-  gather_facts: no
+  gather_facts: false
   connection: local
   tasks:
     - name: graphics installation
@@ -173,7 +179,7 @@
 - name: install && setup rootless podman
   hosts: 127.0.0.1
   connection: local
-  gather_facts: no
+  gather_facts: false
   tasks:
     - name: install podman with dependencies
       kewlfft.aur.aur:
@@ -187,13 +193,15 @@
         content: |
           n0nvme:100000:65536
         dest: /etc/subuid
-        become: yes
+        mode: 0644
+        become: true
     - name: setup subgid
       copy:
         content: |
           n0nvme:100000:65536
         dest: /etc/subgid
-        become: yes
+        mode: 0644
+        become: true
 - name: install python packages
   hosts: 127.0.0.1
   connection: local
