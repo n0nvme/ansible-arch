@@ -35,7 +35,6 @@
       git:
         repo: git@github.com:n0nvme/zshrc.git
         dest: /home/n0nvme/.config/zsh
-
 - name: other files
   hosts: 127.0.0.1
   gather_facts: false
@@ -71,7 +70,6 @@
           [options]
           Color
         marker: "# {mark} ANSIBLE MANAGED BLOCK"
-
       become: true
     - name: fill libinput gestures config
       copy:
@@ -85,109 +83,26 @@
   gather_facts: false
   connection: local
   tasks:
-    - name: graphics installation
-      kewlfft.aur.aur:
-        use: yay
+    - name: read packages list
+      include_vars:
+        file: vars.yml
+        name: packages
+    - name: show packages
+      ansible.builtin.debug: var=packages
+      tags: [debug, never]
+    - name: official packages
+      ansible.builtin.pacman:
         state: present
-        name:
-          - xorg-server
-          - xorg-xinit
-          - xorg-xrandr
-          - awesome-git
-          - i3lock-color
-          - picom-git
-    - name: install & enable daemons # TODO: enable daemons
+        name: packages.pacman
+    - name: aur packages
       kewlfft.aur.aur:
-        use: yay
         state: present
-        name:
-          - networkmanager
-          - docker
-          - blueman
-          - pulseaudio
-    - name: install other packages
-      kewlfft.aur.aur:
-        use: yay
-        state: present
-        name:
-          - gnome-keyring
-          - libsecret
-          - wmctrl
-          - xdotool
-          - libinput-gestures
-          - dex
-    - name: install cli tools
-      kewlfft.aur.aur:
-        use: yay
-        state: present
-        name:
-          - dialog
-          - zsh
-          - openssh
-          - freerdp
-          - openvpn
-          - mc
-          - htop
-          - vim
-          - clang
-          - zip
-          - unzip
-          - tar
-          - docker-compose
-          - ansible-lint
-          - mitmproxy
-          - samba
-          - smartmontools
-          - kubectl
-          - kubectx
-          - kubecolor
-          - exa
-          - fzf
-          - acpi
-          - navi
-          - curlie
-    - name: fonts installation
-      kewlfft.aur.aur:
-        use: yay
-        state: present
-        name:
-          - noto-fonts
-          - noto-fonts-emoji
-          - nerd-fonts-terminus
-          - nerd-fonts-source-code-pro
-          - ttf-fira-code
-    - name: install gui tools
-      kewlfft.aur.aur:
-        use: yay
-        state: present
-        name:
-          - slack-desktop
-          - telegram-desktop
-          - google-chrome
-          - spotify
-          - visual-studio-code-insiders-bin
-          - kitty
-          - robo3t-bin
-          - dbeaver
-          - notion-app
-          - flameshot
-          - libreoffice-fresh
-          - doublecmd-qt5
-          - keepassxc
-          - obsidian
-          - mailspring
-- name: install && setup rootless podman
+        name: packages.aur
+- name: setup rootless podman
   hosts: 127.0.0.1
   connection: local
   gather_facts: false
   tasks:
-    - name: install podman with dependencies
-      kewlfft.aur.aur:
-        use: yay
-        state: present
-        name:
-          - fuse-overlayfs
-          - podman
     - name: setup subuid
       copy:
         content: |
