@@ -46,6 +46,10 @@
           picom -b --unredir-if-possible --backend glx --vsync --glx-no-stencil &
           eval $(gnome-keyring-daemon --start)
           export SSH_AUTH_SOCK
+          onboard &
+          nm-applet &
+          blueman-applet &
+          flameshot &
           exec awesome
         dest: /home/n0nvme/.xinitrc
         mode: 0644
