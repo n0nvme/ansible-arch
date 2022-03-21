@@ -136,3 +136,9 @@
         - 3.10.0
       pyenv_global: system
       pyenv_version: "v2.2.2"
+- name: systemd magick
+  hosts: 127.0.0.1
+  gather_facts: false
+  connection: local
+  roles:
+    - systemd

@@ -1,0 +1,11 @@
+- name: copy suspend service
+  copy:
+    src: suspend@.service
+    dest: /etc/systemd/system/suspend@.service
+    mode: 0644
+  become: true
+- name: enable suspend service
+  ansible.builtin.systemd:
+    enabled: true
+    name: suspend@n0nvme
+  become: true

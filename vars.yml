@@ -77,6 +77,6 @@ aur:
   # gui's
   - slack-desktop
   - google-chrome
-  - visual-studio-code-insiders-bin
+  - code-insiders
   - robo3t-bin
   - mailspring
