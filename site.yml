@@ -35,6 +35,10 @@
       git:
         repo: https://github.com/n0nvme/zshrc.git
         dest: /home/n0nvme/.config/zsh
+    - name: awesomewm config
+      git:
+        repo: https://github.com/n0nvme/s1mpl3.git
+        dest: /home/n0nvme/.config/awesome
 - name: other files
   hosts: 127.0.0.1
   gather_facts: false
