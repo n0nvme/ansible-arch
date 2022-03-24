@@ -49,6 +49,7 @@ pacman:
   - openvpn
   - networkmanager-openvpn
   - mc
+  - reflector
 
   # fonts
   - noto-fonts

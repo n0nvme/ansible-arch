@@ -24,7 +24,7 @@
   tasks:
     - name: kitty config
       git:
-        repo: git@github.com:n0nvme/kitty-config.git
+        repo: https://github.com/n0nvme/kitty-config.git
         dest: /home/n0nvme/.config/kitty
     - name: zshenv
       copy:
@@ -33,7 +33,7 @@
         mode: 0644
     - name: zsh config
       git:
-        repo: git@github.com:n0nvme/zshrc.git
+        repo: https://github.com/n0nvme/zshrc.git
         dest: /home/n0nvme/.config/zsh
 - name: other files
   hosts: 127.0.0.1
@@ -75,6 +75,8 @@
           Color
         marker: "# {mark} ANSIBLE MANAGED BLOCK"
       become: true
+      tags:
+        - preheat
     - name: fill libinput gestures config
       copy:
         content: |
@@ -142,3 +144,28 @@
   connection: local
   roles:
     - systemd
+- name: reflector-config
+  hosts: 127.0.0.1
+  gather_facts: false
+  connection: local
+  tags:
+    - reflector
+    - preheat
+  tasks:
+    - name: install package
+      ansible.builtin.pacman:
+        state: present
+        name:
+          - reflector
+      become: true
+    - name: configure reflector
+      copy:
+        content: |
+          --save /etc/pacman.d/mirrorlist
+          --country Russia,Finland,Netherlands
+          --protocol https
+          --sort rate
+          --latest 10
+        dest: /etc/xdg/reflector/reflector.conf
+        mode: 0644
+      become: true
