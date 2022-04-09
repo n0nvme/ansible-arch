@@ -29,7 +29,7 @@ pacman:
   - exa
   - fzf
 
-  #gui's
+  # gui's
   - telegram-desktop
   - kitty
   - dbeaver
@@ -38,6 +38,10 @@ pacman:
   - doublecmd-qt5
   - keepassxc
   - obsidian
+  - onboard
+
+  # applets
+  - network-manager-applet
 
   # other
   - gnome-keyring
@@ -70,6 +74,7 @@ aur:
   - navi
   - curlie
   - kubecolor
+  - nvm
 
   # fonts
   - nerd-fonts-terminus
