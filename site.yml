@@ -181,3 +181,15 @@
         dest: /etc/xdg/reflector/reflector.conf
         mode: 0644
       become: true
+- name: set up zsh for user
+  hosts: 127.0.0.1
+  connection: local
+  become: false
+  vars:
+    the_user: "{{ ansible_user_id }}"
+  tasks:
+    - name: change user shell to zsh
+      become: true
+      user:
+        name: "{{ the_user }}"
+        shell: /bin/zsh
