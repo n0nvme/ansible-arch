@@ -9,6 +9,7 @@ pacman:
   - docker
   - blueman
   - pulseaudio
+  - xss-lock
 
   # cli's
   - podman

@@ -4,9 +4,10 @@ Before=sleep.target
 
 [Service]
 User=%I
-Type=forking
-Environment=DISPLAY=:0
-ExecStart=/home/n0nvme/.config/awesome/lock.sh
+Type=simple
+# https://github.com/google/xsecurelock#known-compatibility-issues
+Environment="DISPLAY=:0" "XSECURELOCK_COMPOSITE_OBSCURER=0"
+ExecStart=xss-lock xsecurelock
 
 [Install]
 WantedBy=sleep.target
