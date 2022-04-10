@@ -5,7 +5,8 @@ Before=sleep.target
 [Service]
 User=%I
 Type=forking
-Environment=DISPLAY=:0
+# https://github.com/google/xsecurelock#known-compatibility-issues
+Environment="DISPLAY=:0" "XSECURELOCK_COMPOSITE_OBSCURER=0"
 ExecStart=xsecurelock
 
 [Install]
