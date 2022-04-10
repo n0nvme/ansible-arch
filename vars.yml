@@ -45,7 +45,6 @@ pacman:
   - network-manager-applet
 
   # other
-  - gnome-keyring
   - fuse-overlayfs
   - libsecret
   - openssh

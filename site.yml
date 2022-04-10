@@ -56,8 +56,7 @@
       copy:
         content: |
           picom -b --unredir-if-possible --backend glx --vsync --glx-no-stencil &
-          eval $(gnome-keyring-daemon --start)
-          export SSH_AUTH_SOCK
+          env SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
           onboard &
           nm-applet &
           blueman-applet &
