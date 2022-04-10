@@ -3,14 +3,16 @@ pacman:
   - xorg-server
   - xorg-xinit
   - xorg-xrandr
-  - xsecurelock
 
   # daemons
   - networkmanager
+  - docker
   - blueman
   - pulseaudio
 
   # cli's
+  - podman
+  - docker-compose
   - dialog
   - xdotool
   - wmctrl
@@ -21,16 +23,11 @@ pacman:
   - unzip
   - tar
   - smartmontools
+  - kubectl
+  - kubectx
   - acpi
   - exa
   - fzf
-  - arch-audit
-
-  # containers
-  - podman
-  - docker-compose
-  - kubectl
-  - kubectx
 
   # gui's
   - telegram-desktop
@@ -47,6 +44,7 @@ pacman:
   - network-manager-applet
 
   # other
+  - gnome-keyring
   - fuse-overlayfs
   - libsecret
   - openssh
@@ -65,6 +63,7 @@ pacman:
 aur:
   # graphics
   - awesome-git
+  - i3lock-color
   - picom-git
 
   # other
