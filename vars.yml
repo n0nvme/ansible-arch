@@ -29,6 +29,7 @@ pacman:
   - acpi
   - exa
   - fzf
+  - powertop
 
   # gui's
   - telegram-desktop
