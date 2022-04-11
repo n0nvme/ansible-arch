@@ -102,7 +102,7 @@
   tasks:
     - name: read packages list
       include_vars:
-        file: vars.yml
+        file: packages.yml
         name: packages
     - name: show packages
       ansible.builtin.debug: var=packages
