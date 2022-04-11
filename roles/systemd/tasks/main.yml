@@ -9,3 +9,12 @@
     enabled: true
     name: suspend@n0nvme
   become: true
+- name: copy ssh-agent service
+  copy:
+    src: ssh-agent.service
+    dest: /home/n0nvme/.config/systemd/user/ssh-agent.servicee
+    mode: 0644
+- name: enable suspend service
+  ansible.builtin.systemd:
+    enabled: true
+    name: ssh-agent
