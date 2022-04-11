@@ -30,6 +30,7 @@ pacman:
   - exa
   - fzf
   - powertop
+  - upower
 
   # gui's
   - telegram-desktop
