@@ -9,6 +9,8 @@
     enabled: true
     name: suspend@n0nvme
   become: true
+- name: Ensure .config/systemd/user/ dir exists
+  file: path=.config/systemd/user/ state=directory
 - name: copy ssh-agent service
   copy:
     src: ssh-agent.service
@@ -18,3 +20,4 @@
   ansible.builtin.systemd:
     enabled: true
     name: ssh-agent
+    scope: user
