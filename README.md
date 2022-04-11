@@ -7,5 +7,6 @@ after reboot to installed system(from non-root user):
 git clone https://github.com/n0nvme/ansible-arch.git
 cd ansible-arch
 ansible-galaxy install -r requirements.yml
+ansible-playbook site.yml --tags preheat -K
 ansible-playbook site.yml -K
 ```
