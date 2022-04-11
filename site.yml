@@ -64,19 +64,6 @@
           exec awesome
         dest: /home/n0nvme/.xinitrc
         mode: 0644
-    - name: set pam.d/login
-      copy:
-        content: |
-          auth       required     pam_securetty.so
-          auth       requisite    pam_nologin.so
-          auth       include      system-local-login
-          auth       optional     pam_gnome_keyring.so
-          account    include      system-local-login
-          session    include      system-local-login
-          session    optional     pam_gnome_keyring.so auto_start
-        dest: /etc/pam.d/login
-        mode: 0644
-      become: true
     - name: edit pacman.conf
       blockinfile:
         path: /etc/pacman.conf
