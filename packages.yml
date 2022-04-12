@@ -18,8 +18,6 @@ pacman:
   - xss-lock
 
   # cli's
-  - podman
-  - docker-compose
   - dialog
   - xdotool
   - wmctrl
@@ -30,14 +28,18 @@ pacman:
   - unzip
   - tar
   - smartmontools
-  - kubectl
-  - kubectx
   - acpi
   - exa
   - fzf
   - powertop
   - upower
 	- difftastic
+
+  # containers
+  - podman
+  - docker-compose
+  - kubectl
+  - kubectx
 
   # gui's
   - telegram-desktop
