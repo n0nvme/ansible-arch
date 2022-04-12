@@ -42,11 +42,11 @@
     - name: awesomewm nice
       git:
         repo: https://github.com/mut-ex/awesome-wm-nice.git
-        dest: /home/n0nvme/.config/awesomewm/nice
+        dest: /home/n0nvme/.config/awesome/nice
     - name: awesomewm awesome-wm-widgets
       git:
         repo: https://github.com/streetturtle/awesome-wm-widgets.git
-        dest: /home/n0nvme/.config/awesomewm/awesome-wm-widgets
+        dest: /home/n0nvme/.config/awesome/awesome-wm-widgets
 - name: other files
   hosts: 127.0.0.1
   gather_facts: false
