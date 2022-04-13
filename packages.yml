@@ -34,6 +34,7 @@ pacman:
   - powertop
   - upower
   - difftastic
+  - curlie
 
   # containers
   - podman
@@ -83,7 +84,6 @@ aur:
 
   # cli's
   - navi
-  - curlie
   - kubecolor
   - nvm
 
