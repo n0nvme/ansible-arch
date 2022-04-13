@@ -6,9 +6,9 @@ pacman:
 
   # tpm
   - tpm2-tss
-	- tpm2-abrmd
-	- tpm2-pkcs11
-	- tpm2-tools
+  - tpm2-abrmd
+  - tpm2-pkcs11
+  - tpm2-tools
 
   # daemons
   - networkmanager
@@ -33,7 +33,7 @@ pacman:
   - fzf
   - powertop
   - upower
-	- difftastic
+  - difftastic
 
   # containers
   - podman
