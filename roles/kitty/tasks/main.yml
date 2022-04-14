@@ -1,0 +1,5 @@
+- name: copy kitty config
+  copy:
+    src: kitty.conf
+    dest: /home/n0nvme/.config/kitty
+    mode: 0644

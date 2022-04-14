@@ -17,15 +17,11 @@
         name: yay
         state: present
         use: makepkg
-- name: dotfiles
+- name: awesomewm
   hosts: 127.0.0.1
   gather_facts: false
   connection: local
   tasks:
-    - name: kitty config
-      git:
-        repo: https://github.com/n0nvme/kitty-config.git
-        dest: /home/n0nvme/.config/kitty
     - name: awesomewm config
       git:
         repo: https://github.com/n0nvme/s1mpl3.git
@@ -141,6 +137,12 @@
     the_user: "{{ ansible_user_id }}"
   roles:
     - zsh
+- name: kitty
+  hosts: 127.0.0.1
+  gather_facts: false
+  connection: local
+  roles:
+    - kitty
 - name: reflector-config
   hosts: 127.0.0.1
   gather_facts: false
