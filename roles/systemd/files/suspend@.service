@@ -7,7 +7,8 @@ User=%I
 Type=simple
 # https://github.com/google/xsecurelock#known-compatibility-issues
 Environment="DISPLAY=:0" "XSECURELOCK_COMPOSITE_OBSCURER=0"
-ExecStart=xss-lock xsecurelock
+ExecStartPre=setxkbmap us
+ExecStart=xsecurelock
 
 [Install]
 WantedBy=sleep.target
