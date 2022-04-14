@@ -42,11 +42,11 @@
     - name: awesomewm nice
       git:
         repo: https://github.com/mut-ex/awesome-wm-nice.git
-        dest: /home/n0nvme/.config/awesomewm/nice
+        dest: /home/n0nvme/.config/awesome/nice
     - name: awesomewm awesome-wm-widgets
       git:
         repo: https://github.com/streetturtle/awesome-wm-widgets.git
-        dest: /home/n0nvme/.config/awesomewm/awesome-wm-widgets
+        dest: /home/n0nvme/.config/awesome/awesome-wm-widgets
 - name: other files
   hosts: 127.0.0.1
   gather_facts: false
@@ -64,19 +64,6 @@
           exec awesome
         dest: /home/n0nvme/.xinitrc
         mode: 0644
-    - name: set pam.d/login
-      copy:
-        content: |
-          auth       required     pam_securetty.so
-          auth       requisite    pam_nologin.so
-          auth       include      system-local-login
-          auth       optional     pam_gnome_keyring.so
-          account    include      system-local-login
-          session    include      system-local-login
-          session    optional     pam_gnome_keyring.so auto_start
-        dest: /etc/pam.d/login
-        mode: 0644
-      become: true
     - name: edit pacman.conf
       blockinfile:
         path: /etc/pacman.conf

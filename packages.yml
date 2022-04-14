@@ -4,6 +4,12 @@ pacman:
   - xorg-xinit
   - xorg-xrandr
 
+  # tpm
+  - tpm2-tss
+  - tpm2-abrmd
+  - tpm2-pkcs11
+  - tpm2-tools
+
   # daemons
   - networkmanager
   - docker
@@ -12,8 +18,6 @@ pacman:
   - xss-lock
 
   # cli's
-  - podman
-  - docker-compose
   - dialog
   - xdotool
   - wmctrl
@@ -24,13 +28,19 @@ pacman:
   - unzip
   - tar
   - smartmontools
-  - kubectl
-  - kubectx
   - acpi
   - exa
   - fzf
   - powertop
   - upower
+  - difftastic
+  - curlie
+
+  # containers
+  - podman
+  - docker-compose
+  - kubectl
+  - kubectx
 
   # gui's
   - telegram-desktop
@@ -74,7 +84,6 @@ aur:
 
   # cli's
   - navi
-  - curlie
   - kubecolor
   - nvm
 
@@ -88,3 +97,4 @@ aur:
   - code-insiders
   - robo3t-bin
   - mailspring
+  - stoplight-studio-appimage
