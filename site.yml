@@ -17,24 +17,11 @@
         name: yay
         state: present
         use: makepkg
-- name: dotfiles
+- name: awesomewm
   hosts: 127.0.0.1
   gather_facts: false
   connection: local
   tasks:
-    - name: kitty config
-      git:
-        repo: https://github.com/n0nvme/kitty-config.git
-        dest: /home/n0nvme/.config/kitty
-    - name: zshenv
-      copy:
-        content: "ZDOTDIR=~/.config/zsh"
-        dest: /home/n0nvme/.zshenv
-        mode: 0644
-    - name: zsh config
-      git:
-        repo: https://github.com/n0nvme/zshrc.git
-        dest: /home/n0nvme/.config/zsh
     - name: awesomewm config
       git:
         repo: https://github.com/n0nvme/s1mpl3.git
@@ -142,6 +129,20 @@
   connection: local
   roles:
     - systemd
+- name: zsh
+  hosts: 127.0.0.1
+  gather_facts: false
+  connection: local
+  vars:
+    the_user: "{{ ansible_user_id }}"
+  roles:
+    - zsh
+- name: kitty
+  hosts: 127.0.0.1
+  gather_facts: false
+  connection: local
+  roles:
+    - kitty
 - name: reflector-config
   hosts: 127.0.0.1
   gather_facts: false
@@ -167,15 +168,3 @@
         dest: /etc/xdg/reflector/reflector.conf
         mode: 0644
       become: true
-- name: set up zsh for user
-  hosts: 127.0.0.1
-  connection: local
-  become: false
-  vars:
-    the_user: "{{ ansible_user_id }}"
-  tasks:
-    - name: change user shell to zsh
-      become: true
-      user:
-        name: "{{ the_user }}"
-        shell: /bin/zsh
