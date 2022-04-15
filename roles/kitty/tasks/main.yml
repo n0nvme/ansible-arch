@@ -1,5 +1,14 @@
+- name: Ensure kitty config dir exists
+  file: path=/home/n0nvme/.config/kitty state=directory
 - name: copy kitty config
   copy:
     src: kitty.conf
-    dest: /home/n0nvme/.config/kitty
+    dest: /home/n0nvme/.config/kitty/kitty.conf
+    mode: 0644
+- name: Ensure kitty themes dir exists
+  file: path=/home/n0nvme/.config/kitty/themes state=directory
+- name: copy kitty theme
+  copy:
+    src: solarized_dark.conf
+    dest: /home/n0nvme/.config/kitty/themes/solarized_dark.conf
     mode: 0644
