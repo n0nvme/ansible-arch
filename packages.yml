@@ -86,6 +86,7 @@ aur:
   - navi
   - kubecolor
   - nvm
+  - redoc-cli
 
   # fonts
   - nerd-fonts-terminus
