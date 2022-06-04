@@ -1,0 +1,5 @@
+- name: copy zshrc file
+  copy:
+    src: xbindkeysrc
+    dest: /home/n0nvme/.xbindkeysrc
+    mode: 0644

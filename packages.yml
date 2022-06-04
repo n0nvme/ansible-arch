@@ -16,6 +16,7 @@ pacman:
   - blueman
   - pulseaudio
   - xss-lock
+  - xbindkeys
 
   # cli's
   - dialog

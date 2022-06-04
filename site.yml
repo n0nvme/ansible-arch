@@ -48,6 +48,7 @@
           nm-applet &
           blueman-applet &
           flameshot &
+          xbindkeys &
           exec awesome
         dest: /home/n0nvme/.xinitrc
         mode: 0644
@@ -168,3 +169,9 @@
         dest: /etc/xdg/reflector/reflector.conf
         mode: 0644
       become: true
+- name: xbindkeys
+  hosts: 127.0.0.1
+  gather_facts: false
+  connection: local
+  roles:
+    - xbindkeys
