@@ -1,11 +1,11 @@
-name: Ansible Lint  # feel free to pick your own name
+name: Ansible Lint # feel free to pick your own name
 
 on: [push]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
-    container: quay.io/ansible/toolset
+    container: pipelinecomponents/ansible-lint
     steps:
       - uses: actions/checkout@v2
       - run: ansible-lint site.yml
