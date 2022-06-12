@@ -1,0 +1,7 @@
+- name: Ensure gtk-3 config dir exists
+  file: path=/home/n0nvme/.config/gtk-3.0 state=directory
+- name: copy gtk-3 config
+  copy:
+    src: settings.ini
+    dest: /home/n0nvme/.config/gtk-3.0/settings.ini
+    mode: 0644

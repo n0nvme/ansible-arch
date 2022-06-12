@@ -70,6 +70,7 @@
           gesture swipe right xdotool key super+Right
         dest: /home/n0nvme/.config/libinput-gestures.conf
         mode: 0644
+
 - name: install packages
   hosts: 127.0.0.1
   gather_facts: false
@@ -175,3 +176,9 @@
   connection: local
   roles:
     - xbindkeys
+- name: gtk config
+  hosts: 127.0.0.1
+  gather_facts: false
+  connection: local
+  roles:
+    - gtk
