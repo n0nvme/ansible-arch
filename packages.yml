@@ -17,6 +17,7 @@ pacman:
   - pulseaudio
   - xss-lock
   - xbindkeys
+  - udisks2
 
   # cli's
   - light
@@ -37,6 +38,13 @@ pacman:
   - upower
   - difftastic
   - curlie
+  - archiso
+  - ssh-audit
+  - wget
+  - whois
+  - borg
+  - ansible-lint
+  - android-tools
 
   # containers
   - podman
@@ -54,6 +62,7 @@ pacman:
   - keepassxc
   - obsidian
   - onboard
+  - vlc
 
   # applets
   - network-manager-applet
@@ -68,6 +77,7 @@ pacman:
   - networkmanager-openvpn
   - mc
   - reflector
+  - bluez-utils
 
   # fonts
   - noto-fonts
@@ -83,6 +93,7 @@ aur:
   # other
   - libinput-gestures
   - dex
+  - systemd-ssh-agent
 
   # cli's
   - navi
@@ -102,3 +113,5 @@ aur:
   - mailspring
   - stoplight-studio-appimage
   - drawio-desktop-bin
+  - brave-bin
+  - vorta
