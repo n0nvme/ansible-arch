@@ -19,6 +19,7 @@ pacman:
   - xbindkeys
 
   # cli's
+  - light
   - dialog
   - xdotool
   - wmctrl
