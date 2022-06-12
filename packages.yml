@@ -16,8 +16,10 @@ pacman:
   - blueman
   - pulseaudio
   - xss-lock
+  - xbindkeys
 
   # cli's
+  - light
   - dialog
   - xdotool
   - wmctrl
