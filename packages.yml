@@ -48,7 +48,7 @@ pacman:
 
   # containers
   - podman
-  - docker-compose
+  - podman-compose
   - kubectl
   - kubectx
 
