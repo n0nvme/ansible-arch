@@ -1,5 +1,5 @@
 - name: copy suspend service
-  copy:
+  ansible.builtin.copy:
     src: suspend@.service
     dest: /etc/systemd/system/suspend@.service
     mode: 0644
@@ -10,9 +10,9 @@
     name: suspend@n0nvme
   become: true
 - name: Ensure .config/systemd/user/ dir exists
-  file: path=/home/n0nvme/config/systemd/user/ state=directory
+  ansible.builtin.file: path=/home/n0nvme/config/systemd/user/ state=directory mode=0644
 - name: copy ssh-agent service
-  copy:
+  ansible.builtin.copy:
     src: ssh-agent.service
     dest: /home/n0nvme/.config/systemd/user/ssh-agent.service
     mode: 0644
