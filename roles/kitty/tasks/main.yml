@@ -1,12 +1,12 @@
 - name: Ensure kitty config dir exists
-  ansible.builtin.file: path=/home/n0nvme/.config/kitty state=directory mode=0644
+  ansible.builtin.file: path=/home/n0nvme/.config/kitty state=directory mode=0755
 - name: copy kitty config
   ansible.builtin.copy:
     src: kitty.conf
     dest: /home/n0nvme/.config/kitty/kitty.conf
     mode: 0644
 - name: Ensure kitty themes dir exists
-  ansible.builtin.file: path=/home/n0nvme/.config/kitty/themes state=directory mode=0644
+  ansible.builtin.file: path=/home/n0nvme/.config/kitty/themes state=directory mode=0755
 - name: copy kitty theme
   ansible.builtin.copy:
     src: solarized_dark.conf

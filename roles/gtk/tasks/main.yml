@@ -1,5 +1,5 @@
 - name: Ensure gtk-3 config dir exists
-  ansible.builtin.file: path=/home/n0nvme/.config/gtk-3.0 state=directory mode=0644
+  ansible.builtin.file: path=/home/n0nvme/.config/gtk-3.0 state=directory mode=0755
 - name: copy gtk-3 config
   ansible.builtin.copy:
     src: settings.ini

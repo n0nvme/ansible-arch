@@ -10,7 +10,7 @@
     name: suspend@n0nvme
   become: true
 - name: Ensure .config/systemd/user/ dir exists
-  ansible.builtin.file: path=/home/n0nvme/config/systemd/user/ state=directory mode=0644
+  ansible.builtin.file: path=/home/n0nvme/config/systemd/user/ state=directory mode=0755
 - name: copy ssh-agent service
   ansible.builtin.copy:
     src: ssh-agent.service
