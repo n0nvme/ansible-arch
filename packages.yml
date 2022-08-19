@@ -63,6 +63,7 @@ pacman:
   - obsidian
   - onboard
   - vlc
+  - xsecurelock
 
   # applets
   - network-manager-applet
