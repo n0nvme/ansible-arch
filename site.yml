@@ -5,7 +5,7 @@
   connection: local
   tasks:
     - name: configure git
-      copy:
+      ansible.builtin.copy:
         content: |
           [user]
               email = svmpl3nvm3@gmail.com
@@ -23,15 +23,15 @@
   connection: local
   tasks:
     - name: awesomewm config
-      git:
+      ansible.builtin.git:
         repo: https://github.com/n0nvme/s1mpl3.git
         dest: /home/n0nvme/.config/awesome
     - name: awesomewm nice
-      git:
+      ansible.builtin.git:
         repo: https://github.com/mut-ex/awesome-wm-nice.git
         dest: /home/n0nvme/.config/awesome/nice
     - name: awesomewm awesome-wm-widgets
-      git:
+      ansible.builtin.git:
         repo: https://github.com/streetturtle/awesome-wm-widgets.git
         dest: /home/n0nvme/.config/awesome/awesome-wm-widgets
 - name: other files
@@ -40,7 +40,7 @@
   connection: local
   tasks:
     - name: set xinitrc
-      copy:
+      ansible.builtin.copy:
         content: |
           picom -b --unredir-if-possible --backend glx --vsync --glx-no-stencil &
           export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
@@ -53,7 +53,7 @@
         dest: /home/n0nvme/.xinitrc
         mode: 0644
     - name: edit pacman.conf
-      blockinfile:
+      ansible.builtin.blockinfile:
         path: /etc/pacman.conf
         block: |
           [options]
@@ -64,7 +64,7 @@
       tags:
         - preheat
     - name: fill libinput gestures config
-      copy:
+      ansible.builtin.copy:
         content: |
           gesture swipe left xdotool key super+Left
           gesture swipe right xdotool key super+Right
@@ -77,7 +77,7 @@
   connection: local
   tasks:
     - name: read packages list
-      include_vars:
+      ansible.builtin.include_vars:
         file: packages.yml
         name: packages
     - name: show packages
@@ -98,14 +98,14 @@
   gather_facts: false
   tasks:
     - name: setup subuid
-      copy:
+      ansible.builtin.copy:
         content: |
           n0nvme:100000:65536
         dest: /etc/subuid
         mode: 0644
       become: true
     - name: setup subgid
-      copy:
+      ansible.builtin.copy:
         content: |
           n0nvme:100000:65536
         dest: /etc/subgid
@@ -160,7 +160,7 @@
           - reflector
       become: true
     - name: configure reflector
-      copy:
+      ansible.builtin.copy:
         content: |
           --save /etc/pacman.d/mirrorlist
           --country Russia,Finland,Netherlands
