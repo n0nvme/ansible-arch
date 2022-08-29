@@ -10,6 +10,11 @@ pacman:
   - tpm2-pkcs11
   - tpm2-tools
 
+  # yubikey
+  - yubikey-manager
+  - yubikey-manager-qt
+  - libfido2
+
   # daemons
   - networkmanager
   - docker
