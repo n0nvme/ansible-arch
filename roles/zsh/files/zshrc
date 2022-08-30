@@ -60,6 +60,10 @@ if [[ -n $TERM=="xterm-kitty" ]]; then
   kitty +kitten icat --align left ~/Pictures/rick_alpha_small.png
 fi
 
+if [ -n $SSH_CONNECTION ]; then
+  unalias ssh
+fi
+
 setupsolarized
 eval "$(dircolors)"
 alias ls='exa --icons'
