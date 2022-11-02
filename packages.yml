@@ -90,6 +90,7 @@ pacman:
   - noto-fonts
   - noto-fonts-emoji
   - ttf-fira-code
+  - ttf-terminus-nerd
 
 aur:
   # graphics
@@ -109,7 +110,6 @@ aur:
   - redoc-cli
 
   # fonts
-  - nerd-fonts-terminus
   - nerd-fonts-source-code-pro
 
   # gui's
