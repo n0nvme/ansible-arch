@@ -91,6 +91,7 @@ pacman:
   - noto-fonts-emoji
   - ttf-fira-code
   - ttf-terminus-nerd
+  - ttf-sourcecodepro-nerd
 
 aur:
   # graphics
@@ -108,9 +109,6 @@ aur:
   - kubecolor
   - nvm
   - redoc-cli
-
-  # fonts
-  - nerd-fonts-source-code-pro
 
   # gui's
   - slack-desktop
