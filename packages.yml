@@ -27,6 +27,7 @@ pacman:
   # cli's
   - light
   - dialog
+  - unison
   - xdotool
   - wmctrl
   - vim
