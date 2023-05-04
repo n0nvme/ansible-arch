@@ -131,12 +131,6 @@
   connection: local
   roles:
     - systemd
-- name: kitty
-  hosts: 127.0.0.1
-  gather_facts: false
-  connection: local
-  roles:
-    - kitty
 - name: reflector-config
   hosts: 127.0.0.1
   gather_facts: false
