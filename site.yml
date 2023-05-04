@@ -131,14 +131,6 @@
   connection: local
   roles:
     - systemd
-- name: zsh
-  hosts: 127.0.0.1
-  gather_facts: false
-  connection: local
-  vars:
-    the_user: "{{ ansible_user_id }}"
-  roles:
-    - zsh
 - name: kitty
   hosts: 127.0.0.1
   gather_facts: false
@@ -182,3 +174,8 @@
   connection: local
   roles:
     - gtk
+- name: change user shell to zsh
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    shell: /bin/zsh
