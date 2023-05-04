@@ -168,12 +168,6 @@
   connection: local
   roles:
     - xbindkeys
-- name: gtk config
-  hosts: 127.0.0.1
-  gather_facts: false
-  connection: local
-  roles:
-    - gtk
 - name: change user shell to zsh
   become: true
   ansible.builtin.user:
