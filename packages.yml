@@ -3,6 +3,13 @@ pacman:
   - xorg-server
   - xorg-xinit
   - xorg-xrandr
+  - hyprland
+  - xdg-desktop-portal-hyprland
+
+  # misc
+  - pipewire
+  - wireplumber
+  - ydotool
 
   # tpm
   - tpm2-tss
@@ -30,8 +37,6 @@ pacman:
   - unison
   - xdotool
   - wmctrl
-  - vim
-  - htop
   - clang
   - zip
   - unzip
@@ -40,7 +45,6 @@ pacman:
   - acpi
   - exa
   - fzf
-  - powertop
   - upower
   - difftastic
   - curlie
@@ -51,6 +55,13 @@ pacman:
   - borg
   - ansible-lint
   - android-tools
+
+  # tui's
+  - htop
+  - vim
+  - zellij
+  - neovim
+  - powertop
 
   # containers
   - podman
@@ -87,6 +98,7 @@ pacman:
   - reflector
   - bluez-utils
 
+
   # fonts
   - noto-fonts
   - noto-fonts-emoji
@@ -99,6 +111,10 @@ aur:
   - awesome-git
   - i3lock-color
   - picom-git
+  - waybar-hyprland-git
+  - avizo
+  - swaync
+  - sddm-git
 
   # other
   - libinput-gestures
@@ -109,15 +125,12 @@ aur:
   - navi
   - kubecolor
   - nvm
-  - redoc-cli
 
   # gui's
-  - slack-desktop
   - google-chrome
   - code-insiders
   - robo3t-bin
   - mailspring
   - stoplight-studio-appimage
-  - drawio-desktop-bin
   - brave-bin
   - vorta
