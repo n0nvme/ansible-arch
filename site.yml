@@ -63,14 +63,6 @@
       become: true
       tags:
         - preheat
-    - name: fill libinput gestures config
-      ansible.builtin.copy:
-        content: |
-          gesture swipe left xdotool key super+Left
-          gesture swipe right xdotool key super+Right
-        dest: /home/n0nvme/.config/libinput-gestures.conf
-        mode: 0644
-
 - name: install packages
   hosts: 127.0.0.1
   gather_facts: false
