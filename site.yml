@@ -163,7 +163,9 @@
   roles:
     - xbindkeys
 - name: change user shell to zsh
+  hosts: 127.0.0.1
   become: true
-  ansible.builtin.user:
-    name: "{{ ansible_user_id }}"
-    shell: /bin/zsh
+  tasks:
+    - ansible.builtin.user:
+        name: "{{ ansible_user_id }}"
+        shell: /usr/bin/zsh
