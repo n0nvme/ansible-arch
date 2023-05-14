@@ -21,6 +21,9 @@
   hosts: 127.0.0.1
   gather_facts: false
   connection: local
+  tags:
+    - never
+    - awesomewm
   tasks:
     - name: awesomewm config
       ansible.builtin.git:
