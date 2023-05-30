@@ -3,7 +3,7 @@ pacman:
   - xorg-server
   - xorg-xinit
   - xorg-xrandr
-  - hyprland
+  # - hyprland
   - xdg-desktop-portal-hyprland
 
   # misc
@@ -111,6 +111,7 @@ aur:
   - awesome-git
   - i3lock-color
   - picom-git
+  - hyprland-displaylink-git
   - waybar-hyprland-git
   - avizo
   - swaync
