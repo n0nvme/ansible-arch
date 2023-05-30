@@ -71,6 +71,7 @@ pacman:
   - k9s
 
   # gui's
+  - wofi
   - telegram-desktop
   - kitty
   - dbeaver
