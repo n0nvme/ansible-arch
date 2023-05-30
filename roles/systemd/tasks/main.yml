@@ -16,8 +16,28 @@
     src: ssh-agent.service
     dest: /home/n0nvme/.config/systemd/user/ssh-agent.service
     mode: 0644
-- name: enable suspend service
+- name: enable ssh-agent service
   ansible.builtin.systemd:
     enabled: true
     name: ssh-agent
+    scope: user
+- name: copy avizo service
+  ansible.builtin.copy:
+    src: avizo.service
+    dest: /home/n0nvme/.config/systemd/user/avizo.service
+    mode: 0644
+- name: enable avizo service
+  ansible.builtin.systemd:
+    enabled: true
+    name: avizo
+    scope: user
+- name: enable waybar service
+  ansible.builtin.systemd:
+    enabled: true
+    name: waybar
+    scope: user
+- name: enable swaync service
+  ansible.builtin.systemd:
+    enabled: true
+    name: swaync
     scope: user
