@@ -26,6 +26,11 @@
     src: avizo.service
     dest: /home/n0nvme/.config/systemd/user/avizo.service
     mode: 0644
+- name: copy hyprland target
+  ansible.builtin.copy:
+    src: hyprland-session.target
+    dest: /home/n0nvme/.config/systemd/user/hyprland-session.target
+    mode: 0644
 - name: enable avizo service
   ansible.builtin.systemd:
     enabled: true
