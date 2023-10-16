@@ -121,9 +121,9 @@ aur:
   # other
   - libinput-gestures
   - dex
-  - systemd-ssh-agent
 
   # cli's
+  - zoxide
   - navi
   - kubecolor
   - nvm
