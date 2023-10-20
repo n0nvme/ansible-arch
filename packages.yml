@@ -136,3 +136,6 @@ aur:
   - stoplight-studio-appimage
   - brave-bin
   - vorta
+
+  # fonts
+  - ttf-nunito
