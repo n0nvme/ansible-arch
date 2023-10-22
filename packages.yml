@@ -117,6 +117,7 @@ aur:
   - avizo
   - swaync
   - sddm-git
+  - gopsuinfo
 
   # other
   - libinput-gestures
