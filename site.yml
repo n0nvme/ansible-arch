@@ -66,27 +66,6 @@
       become: true
       tags:
         - preheat
-- name: install packages
-  hosts: 127.0.0.1
-  gather_facts: false
-  connection: local
-  tasks:
-    - name: read packages list
-      ansible.builtin.include_vars:
-        file: packages.yml
-        name: packages
-    - name: show packages
-      ansible.builtin.debug: var=packages
-      tags: [debug, never]
-    - name: official packages
-      ansible.builtin.pacman:
-        state: present
-        name: "{{ packages.pacman }}"
-      become: true
-    - name: aur packages
-      kewlfft.aur.aur:
-        state: present
-        name: "{{ packages.aur }}"
 - name: setup rootless podman
   hosts: 127.0.0.1
   connection: local
@@ -106,21 +85,7 @@
         dest: /etc/subgid
         mode: 0644
       become: true
-- name: install python packages
-  hosts: 127.0.0.1
-  connection: local
-  roles:
-    - role: markosamuli.pyenv
-      environment:
-        CC: clang
-      pyenv_init_shell: false
-      pyenv_python_versions:
-        - 3.6.6
-        - 3.8.2
-        - 3.10.0
-      pyenv_global: system
-      pyenv_version: "v2.2.2"
-- name: systemd magick
+- name: systemd magic
   hosts: 127.0.0.1
   gather_facts: false
   connection: local
