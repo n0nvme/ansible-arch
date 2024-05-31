@@ -17,44 +17,11 @@
         name: yay
         state: present
         use: makepkg
-- name: awesomewm
-  hosts: 127.0.0.1
-  gather_facts: false
-  connection: local
-  tags:
-    - never
-    - awesomewm
-  tasks:
-    - name: awesomewm config
-      ansible.builtin.git:
-        repo: https://github.com/n0nvme/s1mpl3.git
-        dest: /home/n0nvme/.config/awesome
-    - name: awesomewm nice
-      ansible.builtin.git:
-        repo: https://github.com/mut-ex/awesome-wm-nice.git
-        dest: /home/n0nvme/.config/awesome/nice
-    - name: awesomewm awesome-wm-widgets
-      ansible.builtin.git:
-        repo: https://github.com/streetturtle/awesome-wm-widgets.git
-        dest: /home/n0nvme/.config/awesome/awesome-wm-widgets
 - name: other files
   hosts: 127.0.0.1
   gather_facts: false
   connection: local
   tasks:
-    - name: set xinitrc
-      ansible.builtin.copy:
-        content: |
-          picom -b --unredir-if-possible --backend glx --vsync --glx-no-stencil &
-          export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-          onboard &
-          nm-applet &
-          blueman-applet &
-          flameshot &
-          xbindkeys &
-          exec awesome
-        dest: /home/n0nvme/.xinitrc
-        mode: 0644
     - name: edit pacman.conf
       ansible.builtin.blockinfile:
         path: /etc/pacman.conf
@@ -116,12 +83,6 @@
         dest: /etc/xdg/reflector/reflector.conf
         mode: 0644
       become: true
-- name: xbindkeys
-  hosts: 127.0.0.1
-  gather_facts: false
-  connection: local
-  roles:
-    - xbindkeys
 - name: change user shell to zsh
   hosts: 127.0.0.1
   become: true

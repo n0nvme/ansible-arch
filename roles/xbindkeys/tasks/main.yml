@@ -1,5 +1,0 @@
-- name: copy zshrc file
-  ansible.builtin.copy:
-    src: xbindkeysrc
-    dest: /home/n0nvme/.xbindkeysrc
-    mode: 0644
