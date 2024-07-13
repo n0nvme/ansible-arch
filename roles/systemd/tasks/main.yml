@@ -4,11 +4,6 @@
     dest: /etc/systemd/system/suspend@.service
     mode: 0644
   become: true
-- name: enable suspend service
-  ansible.builtin.systemd:
-    enabled: true
-    name: suspend@n0nvme
-  become: true
 - name: Ensure .config/systemd/user/ dir exists
   ansible.builtin.file: path=/home/n0nvme/config/systemd/user/ state=directory mode=0755
 - name: copy ssh-agent service
