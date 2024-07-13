@@ -33,25 +33,6 @@
       become: true
       tags:
         - preheat
-- name: setup rootless podman
-  hosts: 127.0.0.1
-  connection: local
-  gather_facts: false
-  tasks:
-    - name: setup subuid
-      ansible.builtin.copy:
-        content: |
-          n0nvme:100000:65536
-        dest: /etc/subuid
-        mode: 0644
-      become: true
-    - name: setup subgid
-      ansible.builtin.copy:
-        content: |
-          n0nvme:100000:65536
-        dest: /etc/subgid
-        mode: 0644
-      become: true
 - name: systemd magic
   hosts: 127.0.0.1
   gather_facts: false
